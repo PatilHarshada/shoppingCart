@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="services.cart">
+    <head>
+        <meta charset="utf-8" />
+        <title>shopping cart angular app</title>
+        <script>document.write('<base href="' +document.location+ '" />');</script>
+        <link rel="stylesheet" href="style.css" />
+        <script data-require="angular.js@1.4.x" src="angular.js" data-semver="1.4.9"></script>
+        <script src="app.js"></script>
+    </head>
+
+    <body ng-controller="MainCtrl">
+        <p>Hello {{name}}!</p>
+        <div class="table-responsive">
+            <table class="table table-stiped table-bordered table-hover">
+
+                <thead>
+                    <tr>
+                        <th>items</th>
+                        <th>Description</th>
+                        <th>price</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="item in items">
+                        <td>{{item.name}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.price | currency}}</td>
+                        <td><button ng-click="addToCart(item)">add to cart</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="myCart">
+                    <div class="table">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>price</th>
+                                    
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr ng-repeat="item in myCart">
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.price|currency}}</td>
+                                </tr>
+                            </tbody>
+                            </div>
+                </div>
+            </div>
+        </div>
+        <div class="myAmount">
+            Amount <input style="margin-left: 350px;" type="text" name="myAmount" ng-model="amount" />
+        </div>
+    </body>
+</html>
